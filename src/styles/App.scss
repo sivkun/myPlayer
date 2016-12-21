@@ -1,0 +1,416 @@
+/* Base Application Styles */
+// @font-face {
+//   font-family: "iconfont-min";
+//   src: url('../fonts/icons/min/iconfont.eot?t=1481547951844'); /* IE9*/
+//   src: url('../fonts/icons/min/iconfont.eot?t=1481547951844#iefix') format('embedded-opentype'), /* IE6-IE8 */
+//   url('../fonts/icons/min/iconfont.woff?t=1481547951844') format('woff'), /* chrome, firefox */
+//   url('../fonts/icons/min/iconfont.ttf?t=1481547951844') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+//   url('../fonts/icons/min/iconfont.svg?t=1481547951844#iconfont') format('svg'); /* iOS 4.1- */
+// }
+
+// // .iconfont-min {
+// //   font-family:"iconfont-min" !important;
+// //   font-size:16px;
+// //   font-style:normal;
+// //   -webkit-font-smoothing: antialiased;
+// //   -webkit-text-stroke-width: 0.2px;
+// //   -moz-osx-font-smoothing: grayscale;
+// // }
+
+// // .icon-zuixiaohua:before { content: "\e694"; }
+/*==============
+    基本默认值
+    ===========*/
+
+html {
+    font-size: 62.5%;
+    color: #222;
+    font-family: 微软雅黑;
+}
+
+/*设置选中*/
+::selection {
+    background-color: #b3d4fc;
+    text-shadow: none;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}
+/*==============
+    工具样式
+    ===========*/
+
+.center-block {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.pull-right {
+    float: right !important;
+}
+
+.pull-left {
+    float: left !important;
+}
+
+.text-right {
+    text-align: right !important;
+}
+
+.text-left {
+    text-align: left !important;
+}
+
+.text-center {
+    text-align: center !important;
+}
+
+.hide {
+    display: none !important;
+}
+
+.show {
+    display: block !important;
+}
+
+.invisible {
+    visibility: hidden;
+    /*元素所占空间保留*/
+}
+
+.text-hide {
+    font: 0/0 a;
+    color: transparent;
+    text-shadow: none;
+    background-color: transparent;
+    border: 0;
+}
+
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+/* ==================
+    自定义页面样式
+   =================*/
+/*app*/
+.app{
+  width: 80%;
+  // height: 700px;
+  background-color: #FFFFFF;
+  margin: 0 auto 20px;
+  border: 0.01px solid #1883D7;
+  min-width: 50rem;
+  position:absolute;
+  overflow: hidden;
+  //  left: 50%;
+  //  margin-left: -40% ;  /*此处的负值是宽度的一半*/
+}
+/*top*/
+.top{
+  background-color: #BC2F2E;
+  .top-left{
+    float: left;
+    color:#fff;
+    font-size: 1.2rem;
+    line-height: 1.8rem;
+    margin:1rem auto;
+    margin-left:2rem;
+  }
+  .top-right{
+    float: right;
+    color: #fff;
+    ul {
+      li{
+        display: inline-block;
+        line-height: 1.8rem;
+        padding: 1rem 2rem;
+        font-size: 1.5rem;
+        font-weight: 100;
+        &:hover{
+          background-color: #E81023;
+        }
+      }
+   }
+  }
+}
+
+/*****************container******************/
+/*============sidebar=============*/
+.container{
+   .thumb-vertical{
+        position: relative;
+        display: block;
+        width: 100%;
+        cursor: pointer;
+        border-radius: inherit;
+        background-color: rgba(173, 175, 178, .8);
+        height: 401.294px;
+        transform: translateY(63.565px);
+        &:hover{
+          background-color: rgba(173, 175, 178, 1);
+        }
+      }
+  @at-root{
+    .sidebar{
+      float:left;
+      width:20rem;
+      background-color: #F3F3F5;
+      font-size: 1.4rem;
+      &-link{
+        line-height: 4rem;
+        padding-left: 1rem;
+        display: inline-block;
+        width: calc(100% - 1.2rem);
+        color:#222;
+        font-weight: normal;
+        font-size: 1.3rem;
+        text-decoration:none;
+        &:hover{
+          background-color: #E8E8EB;
+        }
+        &__active{
+          padding-left: calc(1rem - 6px);
+          border-left: solid 4px #E81023;
+          width: calc(100% - 1rem );
+          background-color: #DDDDE1;
+        }
+        i{
+            padding-right: 1rem;
+            font-size:1.5rem;
+          }
+      }
+      &-header{
+        line-height: 5rem;
+        font-size: 2rem;
+        padding-left: 1rem;
+      }
+      // &-base{
+      //   line-height: 4rem;
+      //   &-item{
+      //     i{
+      //       padding-right: 1rem;
+      //       font-size:1.5rem;
+      //     }
+      //   }
+      // }
+      // &-scroll{
+      //   height: 400px;
+      //   overflow-y:auto;
+      //   overflow-x: hidden;
+      // }
+      // ::-webkit-scrollbar{
+      //   width:1.2px;
+      // }
+      // ::-webkit-scrollbar-track{
+      //   -webkit-box-shadow:inset 0 0 6px rgba(0,0,0,.3);
+      //   -webkit-border-radius:10px;
+      //   border-radius: 10px;
+      // }
+      // /* Handle */
+      // ::-webkit-scrollbar-thumb {
+      //     -webkit-border-radius: 10px;
+      //     border-radius: 10px;
+      //     background: rgba(255,0,0,0.8);
+      //     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+      // }
+      // ::-webkit-scrollbar-thumb:window-inactive {
+      //   background: rgba(255,0,0,0.4);
+      // }
+
+      &-myMusic-title{
+        color:#939393;
+        width: 100%;
+        font-size:1.2rem;
+        font-weight: 500;
+        // line-height: 4rem;
+        padding-top:2rem;
+        padding-bottom: .7rem;
+        padding-left:1rem;
+
+      }
+      &User{
+        width:20rem;
+        line-height: 6rem;
+        &-avator{
+          // line-height: 7rem;
+          vertical-align: middle;
+          font-size:3rem;
+          color:#E8E8EB;
+          padding: 0 1rem;
+        }
+        &-name{
+          font-size: 1rem;
+        }
+        &-email{
+          font-size: 1.6rem;
+          height: 100%;
+          color:#000;
+          vertical-align: middle;
+          text-align: center;
+          line-height: 6rem;
+          margin: 0px 1.6rem 0 4rem;
+          padding-top: 2px;
+        }
+        &-setting{
+          font-size: 1.8rem;
+          vertical-align: middle;
+        }
+
+      }
+    }
+  }
+}
+
+.audioPlay{
+  height: 6rem;
+  border-top:solid #DDDDE1 1px;
+  // position: relative;
+  &-audioImg{
+    z-index: 101;
+    position: relative;
+    display: inline-block;
+    vertical-align:top;
+    width:6rem;
+    // height: 6rem;
+    background-image: url("http://p2.music.126.net/mic-HzsY8tNY6DD1eHzdlg==/612427976714915.jpg");
+    background-size:6rem 6rem;
+    .shadeLayer{
+      display: none;
+      background:#000;
+      width:6rem;
+      height:6rem;
+      // padding:5px;
+      color:#F00;
+      filter:alpha(Opacity=50);
+      -moz-opacity:0.5;opacity: 0.5;
+      .show{
+        display:inherit;
+      }
+    }
+  }
+  &-audioController{
+    z-index: 101;
+    position: relative;
+    display: inline-block;
+    background-color: #fff;
+    vertical-align:top;
+    padding-left: 3rem;
+    width:16rem;
+    height: 6rem;
+    span{
+      display: inline-block;
+      font-size: 3rem;
+      color:#DF3B3B;
+      width: 5rem;
+      line-height: 6rem;
+      vertical-align: middle;
+    }
+  }
+
+    .scrollView{
+      // background-color: #1883D7;
+      display: inline-block;
+      vertical-align:top;
+      width: calc( 100% - 50rem );
+      white-space:nowrap;
+      &-top{
+          //  background-color: #0ff;
+          height: 2.3rem;
+          line-height: 2.3rem;
+          padding-top:.6rem;
+          padding-left: 3px;
+          z-index: 10;
+          .songName{
+            font-size: 1.2rem;
+          }
+          .singerName{
+            font-size: 1rem;
+            color:#939393;
+          }
+          .time{
+            z-index: 100;
+            right:calc(25rem);
+            background-color: #fff;
+            padding-right: 2rem;
+            padding-left: 1rem;
+             position: absolute;
+            color:#939393;
+            em{
+              color:#444;
+            }
+          }
+      }
+      &-barView{
+          margin-right: 2rem;
+          padding-top : 1rem;
+          padding-bottom: 1rem;
+          margin-left: .5rem;
+          .barbg{
+            width:100%;
+            height: .3rem;
+            background-color: #DDDDE1;
+            .cur{
+              position: relative;
+              background-color:#BC2F2E;
+              height: .3rem;
+              width:10%;
+              span{
+                  position: absolute;
+                  z-index: 100;
+                  top:-1rem;
+                  left:-0.5rem; //-0.5rem开始
+                  display: inline-block;
+                  background: url("../images/iconall.png");
+                  background-position: -1px -250px;
+                  width:20px;
+                  height: 20px;
+                  border-radius: 10px;
+              }
+            }
+          }
+      }
+
+    }
+    &-right{
+      width:25rem;
+      height:6rem;
+      background-color:#b3d4fc;
+      z-index:100;
+      display:inline-block;
+      position:relative;
+      span{
+        text-align: center;
+        display: inline-block;
+        color:red;
+        width:3rem;
+        height: 6rem;
+        line-height: 6rem;
+      }
+      .like{
+
+      }
+      .order{
+
+      }
+      .volume{
+        color:red;
+
+      }
+    }
+  }
+
+
