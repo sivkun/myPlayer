@@ -73,6 +73,7 @@ export default class ScrollView extends React.Component {
   }
 
   render() {
+    // console.log(this.props.mInfo)
     let curwidth , curDotleft; //curwidth:当前进度条长度，curDotleft：进度条的点的偏移量。
     let mInfo=this.props.mInfo;
     let curTime=mInfo.curTime;

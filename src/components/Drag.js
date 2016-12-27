@@ -85,7 +85,7 @@ export default  function drag(elementToDrag,event,direction,callback,minOffset=-
 		//并且不让事件进一步传播
 		if(e.stopPropagation)e.stopPropagation();
 		else e.cancleBubble=true;
-    callback(false);
+    callback&&callback(false);
 	}
 }
 

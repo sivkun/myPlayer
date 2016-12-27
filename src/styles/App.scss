@@ -118,6 +118,21 @@ li {
   overflow: hidden;
   //  left: 50%;
   //  margin-left: -40% ;  /*此处的负值是宽度的一半*/
+  user-select:none;
+}
+//滚动条样式
+.thumb-vertical{
+    position: relative;
+    display: block;
+    width: 100%;
+    cursor: pointer;
+    border-radius: inherit;
+    background-color: rgba(173, 175, 178, .8);
+    // height: 20px;
+    transform: translateY(63.565px);
+    &:hover{
+      background-color: rgba(173, 175, 178, 1);
+    }
 }
 /*top*/
 .top{
@@ -151,19 +166,7 @@ li {
 /*****************container******************/
 /*============sidebar=============*/
 .container{
-   .thumb-vertical{
-        position: relative;
-        display: block;
-        width: 100%;
-        cursor: pointer;
-        border-radius: inherit;
-        background-color: rgba(173, 175, 178, .8);
-        height: 401.294px;
-        transform: translateY(63.565px);
-        &:hover{
-          background-color: rgba(173, 175, 178, 1);
-        }
-      }
+
   @at-root{
     .sidebar{
       float:left;
@@ -319,6 +322,11 @@ li {
       line-height: 6rem;
       vertical-align: middle;
     }
+    .play-icon{
+      font-size: 3.5rem;
+      width:5.5rem;
+    }
+
   }
 
     .scrollView{
@@ -388,29 +396,273 @@ li {
     &-right{
       width:25rem;
       height:6rem;
-      background-color:#b3d4fc;
+      background-color:#fff;
       z-index:100;
       display:inline-block;
       position:relative;
-      span{
-        text-align: center;
-        display: inline-block;
-        color:red;
-        width:3rem;
-        height: 6rem;
-        line-height: 6rem;
-      }
       .like{
-
+        // background-color: #1883D7;
+          text-align: center;
+          display: inline-block;
+          vertical-align: top;
+          padding-top:1px;
+          color:#BC2F2E;
+          width:5.6rem;
+          height: 6rem;
+          line-height: 6rem;
+          font-size: 1.8rem;
       }
       .order{
+          // background-color: #eeddaa;
+          text-align: center;
+          display: inline-block;
+          vertical-align:top;
+          padding-top:2px;
+          color:#939393;
+          width:5.6rem;
+          height: 6rem;
+          line-height: 6rem;
+          font-size: 2rem;
 
       }
       .volume{
-        color:red;
+        // background-color: #1883D7;
+        text-align: center;
+        display: inline-block;
+        vertical-align:top;
+        padding-top:1.5px;
+        color:#939393;
+        width:5.6rem;
+        height: 6rem;
+        line-height: 6rem;
+        position: relative;
+        &-controll{ //音量控制
+          position: absolute;
+          // display: none;
+          width: 30rem;
+          height: 5rem;
+          top:-6rem;
+          left:-17rem;
+          border:1px solid #d7d7d7;
+          box-shadow: 1px 1px 2px #d7d7d7;
+          transition: opacity .3s linear,visibility .3s;
+          &.show{
+            // opacity: 1;
+            display: block;
+          }
+          &.hidden{
+              opacity: 0;
+              visibility: hidden;
+            // display: none;
+          }
+          .vcarrow{
+            position: absolute;
+            left:18.8rem;
+            top:4.9rem;
+            em ,i{
+              width: 0;
+              height: 0;
+              border:1rem solid transparent ;
+              border-style:solid dashed dashed;
+              position: absolute;
+            }
+            em{
+              border-top-color: #d7d7d7;
+              top:1px
+            }
+            i{
+              border-top-color: #fff;;
+              top:0
+            }
+          }
+          .vc-icon{
+            display: inline-block;
+            float: left;
+            vertical-align: top;
+            height: 5rem;
+            width: 2rem;
+            line-height: 5rem;
+            padding-top: 1px;
+            font-size: 1.6rem;
+          }
+          .vcbarView{
+            display: inline-block;
+            width: 25rem;
+            vertical-align: top;
+            margin-top: 1.5rem;
+            padding-top : 1rem;
+            padding-bottom: 1rem;
+            .barbg{
+            width:100%;
+            height: .2rem;
+            background-color: #DDDDE1;
+            .cur{
+              position: relative;
+              background-color:#BC2F2E;
+              height: .2rem;
+              width:0;
+              span{
+                  position: absolute;
+                  z-index: 100;
+                  top:-1.1rem;
+                  left:-0.5rem; //-0.5rem开始
+                  display: inline-block;
+                  background: url("../images/iconall.png");
+                  background-position: -1px -250px;
+                  width:20px;
+                  height: 20px;
+                  border-radius: 10px;
+              }
+            }
+          }
+
+
+          }
+
+        }
+
 
       }
+      //播放列表
+      .playList{
+         display: inline-block;
+         position: relative;
+        .hidden{ //隐藏
+            opacity: 0;
+            visibility: hidden;
+            display: inline-block;
+        }
+         &-show{ //播放列表展示
+            position: absolute;
+           bottom: 5rem;
+           right: -2.6rem;
+           transition: opacity .2s ease,display .2s ease;
+           .list{
+             width:50rem;
+             height: 50rem;
+             border: 1px solid #DDDDE1;
+              background: #ffffff;
+             &-top{
+               height: 4.5rem;
+               line-height: 4.5rem;
+               border-bottom: 1px solid #DDDDE1;
+               .musicList{
+                 display: inline-block;
+                 width:calc(55% - 4rem);
+                 font-size: 1.6rem;
+                 padding-left: 4rem;
+
+               }
+               .collection{
+                 display: inline-block;
+                 font-size: 1.3rem;
+                 margin-right: 2rem;
+                 i{
+                   margin-right: 2px;
+                 }
+               }
+               .clearAll{
+                 display: inline-block;
+                 font-size: 1.3rem;
+                 margin-left: 2rem;
+                 margin-right: 3.5rem;
+                 i{
+                   margin-right: 2px;
+                 }
+               }
+               .ltclose{
+                //  display: inline-block;
+               }
+             }
+             &-container{
+               div:nth-child(2n+1){
+                background-color: #F9F9F9;
+               }
+               .zoomf{
+                    font-size: .99rem;
+                    text-shadow: 1px 1px 1px #DDDDE1;
+                    padding:0 3px !important;
+                 }
+               .playListItem{
+                 height: 4.5rem;
+                 line-height: 4.5rem;
+                 div,span{
+                   display: inline-block;
+                   overflow: hidden;
+                 }
+                 .status{
+                   opacity: 0;
+                   visibility: hidden;
+                   width: 4rem;
+                   text-align: center;
+                 }
+                 .songCon{
+                    width:calc(55% - 4rem);
+                    font-size: 1.4em;
+
+                 }
+                 .artist{
+                   width:calc( ( 45% + 4rem ) * .5 );
+                   color:#939393;
+                   font-size: 1.2em;
+
+                 }
+                 .time{
+                   color:#939393;
+                   font-size: 1.2em;
+                 }
+                 .delete{
+                   padding-left: 2.5rem;
+                   display: none;
+                 }
+                 &:hover{
+                   background-color: #F2F2F3;
+                 }
+                 &:focus{
+                   background-color:  #E8E8EA;
+                   outline: none;
+                  .delete{
+                    display: inline-block;
+                  }
+                  &:hover{
+                    background-color: #DEDEE0;
+                  }
+                 }
+               }
+             }
+
+
+           }
+         }
+         &-icon{
+          // background-color: #55ffcc;
+          text-align: center;
+          display: inline-block;
+          color:#939393;
+          width:5.6rem;
+          height: 6rem;
+          line-height: 6rem;
+          vertical-align:top;
+          .number{
+            display: inline-block;
+            vertical-align: middle;
+            margin-left: 2px;
+            background-color: #BABBC0;
+            color:#fff;
+            font-size: .8rem;
+            height: 1.6rem;
+            width:2rem;
+            line-height: 1.6rem;
+            border-radius: .5rem;
+          }
+          &:focus{
+            outline: none;
+          }
+        }
+      }
     }
+
+
   }
 
 

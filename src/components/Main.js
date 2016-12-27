@@ -27,6 +27,17 @@ class AppComponent extends React.Component {
     this.updatePosition=this.updatePosition.bind(this);
     this.getAppPosition=this.getAppPosition.bind(this)
   }
+  componentDidMount(){
+    // ReactDOM.findDOMNode(this.refs.app).onclick=()=>{
+    //   console.log('app')
+    // }
+    // document.body.addEventListener('click',(event)=>{
+    //   console.log('body')
+    // })
+    // ReactDOM.findDOMNode(this).addEventListener('click', (event) => {
+    //   console.log('app')
+    // }, false);
+  }
   dragApp(event){
     // console.log(event.target.parentNode);
     drag(event.target.parentNode,event,'xy'); //拖拽是异步执行
@@ -63,7 +74,7 @@ class AppComponent extends React.Component {
 
   render() {
     return (
-      <div className='app clearfix' ref="app">
+      <div className='app clearfix' ref="app" >
 
 
         <div className='top clearfix' onMouseDown={(event)=>this.dragApp(event)}>
