@@ -57,15 +57,7 @@ class AudioPlay extends React.Component{
           return this;
         }
       },
-      mInfo:new Music({
-        artist:'许巍',
-        song:'世外桃源',
-        totalTime:287.5,
-        curTime:0,
-        url:'../resource/许巍 - 世外桃源.mp3',
-        status:'pause',
-        dragTime:-1
-      }),
+      mInfo:new Music(playList[0]),
       playList:playList
     };
     this.audioD; //audio对象
