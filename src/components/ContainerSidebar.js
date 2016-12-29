@@ -1,8 +1,9 @@
 import React from 'react';
+import ReactDOM from 'react-dom'
 import {Link} from 'react-router';
 //import {CustomScrollbars} from './CustomScrollbars';
 import {Scrollbars} from 'react-custom-scrollbars';
-
+import {eleTraversal} from './utils'
 const Icon = ({iconName})=>{
   let className='iconfont '+iconName;
   return(
@@ -18,14 +19,18 @@ const SidebarLink =(props)=>{
 const SidebarItem=({children,path,iconName})=>{
   return (
     <div>
-      <SidebarLink to={path}><Icon iconName={iconName} />{children}</SidebarLink>
+      <SidebarLink to={path}><Icon iconName={iconName} /><span>{children}</span></SidebarLink>
     </div>
   );
 }
 
-const SidebarHeader=()=>{
+const SidebarHeader=(props)=>{
+  const sidbarMinorMax=()=>{
+    // document.querySelectorAll(".sidebar*")
+    props.sidbarMinorMax();
+  }
   return (
-    <div className='sidebar-header'>
+    <div className='sidebar-header' onClick={sidbarMinorMax}>
       <Icon iconName='icon-sangang'/>
     </div>
   );
@@ -79,13 +84,55 @@ const SidebarUser=()=>{
 class ContainerSideBar extends React.Component{
   constructor(props){
     super(props);
+    this.sidbarMinorMax=this.sidbarMinorMax.bind(this);
   }
+  componentDidMount(){
+    let resizeListener=()=>{
+      let ww=window.innerWidth;
+      let sidebarO=ReactDOM.findDOMNode(this.refs.sidebar);
+      if(ww<801&&sidebarO.className!='sidebarMin clearfix'){
+        let eles=eleTraversal(sidebarO);
+        eles.forEach((item,index)=>{
+          item.className=item.className.replace(/(sidebar)([^M])/g,(m,p1,p2)=>{
+             return 'sidebarMin'+p2;
+          });
+        });
+          sidebarO.className='sidebarMin clearfix';
+       }else if(ww>=801&&sidebarO.className!='sidebar clearfix'){
+         let eles=eleTraversal(sidebarO);
+         eles.forEach((item,index)=>{
+           item.className=item.className.replace(/sidebarMin/g,'sidebar');
+         });
+         sidebarO.className='sidebar clearfix';
+       }
+    };
+    resizeListener();//当刚加载时候，根据窗体大小响应式变化。
+    window.addEventListener('resize',resizeListener);
+  }
+  sidbarMinorMax(){
+    let sidebarO=ReactDOM.findDOMNode(this.refs.sidebar);
+    if(sidebarO.className=='sidebar clearfix'){
+     let eles=eleTraversal(sidebarO);
+     eles.forEach((item,index)=>{
+       item.className=item.className.replace(/sidebar/g,'sidebarMin');
+     });
+      sidebarO.className='sidebarMin clearfix'
+    }else{
+        let eles=eleTraversal(sidebarO);
+        eles.forEach((item,index)=>{
+          item.className=item.className.replace(/sidebarMin/g,'sidebar');
+        });
+          sidebarO.className='sidebar clearfix'
+    }
+  }
+
   render(){
     return(
-      <div className='sidebar clearfix'>
-        <SidebarHeader/>
+      <div ref="sidebar" className='sidebar clearfix'>
+        <SidebarHeader sidbarMinorMax={this.sidbarMinorMax}/>
           <Scrollbars
-           style={{ width: '20.2rem', height: 500}}
+           className="sidebar-scrollbar"
+           style={{ width: '18.2rem', height: 500}}
            autoHide
            autoHideTimeout={2000}
            autoHideDuration={500}

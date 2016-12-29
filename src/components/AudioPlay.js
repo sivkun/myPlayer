@@ -74,12 +74,12 @@ class AudioPlay extends React.Component{
   }
   componentDidMount(){
      this.audioD=new Audio(this.state.mInfo.url);
-     window.onresize=()=>{
+     window.addEventListener('resize',()=>{
        this.setState({
          mInfo:this.state.mInfo
          }
        );
-     }
+     });
      document.body.addEventListener('click',(event)=>{
         let targetClass=event.target.parentNode.className;
         let playListShow=ReactDOM.findDOMNode(this.refs.playListShow);

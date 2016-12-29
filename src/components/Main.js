@@ -93,7 +93,7 @@ class AppComponent extends React.Component {
 
 
         <div className='container clearfix'>
-          <div className='sidebar'>
+          <div >
              {/*this.props.sidebar||<Sidebar/>*/}
              <ContainerSidebar/>
           </div>

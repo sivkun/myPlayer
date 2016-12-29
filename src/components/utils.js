@@ -26,5 +26,13 @@ function timeFormat(t){
       }
       return fTime;
   }
-
-  export {timeFormat}
+const  eleTraversal=(ele)=>{
+  let colection=[];
+  colection.push(ele);
+  let children=ele.children;
+  Array.prototype.forEach.call(children,(item,index)=>{
+    colection=colection.concat(eleTraversal(item));
+    })
+  return colection;
+}
+  export {timeFormat,eleTraversal}

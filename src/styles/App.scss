@@ -168,16 +168,15 @@ li {
 .container{
 
   @at-root{
-    .sidebar{
+    .sidebar,.sidebarMin{
       float:left;
-      width:20rem;
+      width:18rem;
       background-color: #F3F3F5;
       font-size: 1.4rem;
       &-link{
         line-height: 4rem;
-        padding-left: 1rem;
         display: inline-block;
-        width: calc(100% - 1.2rem);
+        width: calc(100% - .2rem );
         color:#222;
         font-weight: normal;
         font-size: 1.3rem;
@@ -186,20 +185,28 @@ li {
           background-color: #E8E8EB;
         }
         &__active{
-          padding-left: calc(1rem - 6px);
           border-left: solid 4px #E81023;
-          width: calc(100% - 1rem );
+           width: calc( 100% - 0.6rem );
           background-color: #DDDDE1;
         }
         i{
-            padding-right: 1rem;
             font-size:1.5rem;
+            display: inline-block;
+            width:4.5rem;
+            height: 4rem;
+            line-height: 4rem;
+            margin:0;
+            padding:0;
+            text-align: center;
           }
       }
       &-header{
-        line-height: 5rem;
-        font-size: 2rem;
-        padding-left: 1rem;
+        width:4.5rem;
+           height: 4.4rem;
+           margin: 0;
+           padding: 0;
+           text-align: center;
+           line-height: 4.4rem;
       }
       // &-base{
       //   line-height: 4rem;
@@ -246,7 +253,7 @@ li {
 
       }
       &User{
-        width:20rem;
+        width:18rem;
         line-height: 6rem;
         &-avator{
           // line-height: 7rem;
@@ -265,16 +272,98 @@ li {
           vertical-align: middle;
           text-align: center;
           line-height: 6rem;
-          margin: 0px 1.6rem 0 4rem;
+          margin: 0px 2rem 0 4rem;
           padding-top: 2px;
         }
         &-setting{
           font-size: 1.8rem;
           vertical-align: middle;
+          line-height: 6rem;
         }
 
       }
     }
+    .sidebarMin{
+         width: 4.5rem;
+      &-link{
+        padding:0;
+        width:4.5rem;
+        span{
+          display:none;
+        }
+        &__active{
+          width:4rem ;
+        }
+      }
+      &-scrollbar{
+        width:4.5rem !important;
+        height: 44.2rem !important;
+      }
+      &-myMusic{
+        display: none;
+      }
+      &-playlist{
+        display:none;
+      }
+      &User{
+        &-name{
+          display: none;
+        }
+      &-avator,&-email, &-setting{
+          display: block;
+          width:4.5rem;
+          height: 4rem;
+          line-height: 4rem;
+          margin:0;
+          padding:0;
+          text-align: center;
+        }
+        &-avator{
+          font-size: 3rem !important;
+        }
+      }
+    }
+  //   @media only screen  and (max-width:50rem) { //sidbar媒介查询start
+  //   .sidebar{
+  //     width: 4.5rem;
+  //     &-link{
+  //       padding:0;
+  //       width:4.5rem;
+  //       span{
+  //         display:none;
+  //       }
+  //       &__active{
+  //         width:4rem ;
+  //       }
+  //     }
+  //     &-scrollbar{
+  //       height: 44.2rem !important;
+  //     }
+  //     &-myMusic{
+  //       display: none;
+  //     }
+  //     &-playlist{
+  //       display:none;
+  //     }
+  //     &User{
+  //       &-name{
+  //         display: none;
+  //       }
+  //     &-avator,&-email, &-setting{
+  //         display: block;
+  //         width:4.5rem;
+  //         height: 4rem;
+  //         line-height: 4rem;
+  //         margin:0;
+  //         padding:0;
+  //         text-align: center;
+  //       }
+  //       &-avator{
+  //         font-size: 3rem !important;
+  //       }
+  //     }
+  //   }
+  // }//sidbar媒介查询end
   }
 }
 
